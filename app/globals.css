@@ -1,0 +1,90 @@
+:root { --paper:#f1ede2; --ink:#11110f; --blue:#0b347e; --line:rgba(17,17,15,.22); }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; background:var(--paper); color:var(--ink); font-family:Arial,Helvetica,sans-serif; font-size:14px; }
+a { color:inherit; text-decoration:none; }
+img { display:block; max-width:100%; }
+
+.site-header { position:relative; z-index:10; display:grid; grid-template-columns:1fr auto; align-items:center; min-height:72px; padding:0 2.25vw; border-bottom:1px solid var(--line); }
+.brand,.site-header nav { display:flex; gap:22px; align-items:center; }
+.site-header nav a,.hero-meta a,footer a { border-bottom:1px solid currentColor; padding-bottom:2px; }
+.hero { min-height:calc(100vh - 72px); padding:4.5vw 2.25vw 2.25vw; display:flex; flex-direction:column; justify-content:space-between; }
+.eyebrow { text-transform:uppercase; letter-spacing:.09em; font-size:11px; }
+.hero h1 { margin:auto 0; font-size:clamp(3.9rem,9.8vw,10rem); line-height:.83; letter-spacing:-.075em; font-weight:500; max-width:95vw; }
+.hero h1 span { padding-left:10vw; }
+.hero-meta { display:grid; grid-template-columns:1fr auto; align-items:end; border-top:1px solid var(--line); padding-top:14px; }
+.hero-meta p { max-width:380px; margin:0; line-height:1.45; }
+.featured { padding:0 2.25vw 8vw; }
+.featured>img { width:100%; height:auto; object-fit:contain; }
+.featured-caption { display:grid; grid-template-columns:1fr 1fr auto; padding-top:12px; text-transform:uppercase; font-size:11px; letter-spacing:.05em; }
+.project-index { border-top:1px solid var(--line); }
+.section-heading { display:grid; grid-template-columns:1fr 2fr; padding:22px 2.25vw 11vw; }
+.section-heading p { margin:0; }
+.project-row { padding:2.25vw; display:grid; grid-template-columns:38% 62%; border-top:1px solid var(--line); }
+.project-row.blue { background:var(--blue); color:#f4efe4; --line:rgba(255,255,255,.3); }
+.project-copy { display:grid; grid-template-rows:1fr auto auto; min-height:38vw; padding-right:4vw; }
+.project-number { font-size:12px; }
+.project-copy h2 { margin:0; max-width:100%; font-size:clamp(2.8rem,5.2vw,6rem); line-height:.9; letter-spacing:-.055em; font-weight:500; overflow-wrap:anywhere; }
+.project-copy p { margin:18px 0 0; font-size:16px; }
+.project-row figure { margin:0; overflow:hidden; align-self:center; }
+.project-row figure img { width:100%; height:auto; object-fit:contain; transition:transform .7s cubic-bezier(.2,.7,.2,1); }
+.project-row:hover figure img { transform:scale(1.018); }
+.story { display:grid; grid-template-columns:1fr 1fr; gap:6vw; padding:11vw 2.25vw; border-top:1px solid var(--line); }
+.story-title>p { margin:0 0 5vw; text-transform:uppercase; font-size:11px; letter-spacing:.08em; }
+.story h2,.location-block h2 { font-size:clamp(3rem,6vw,6.5rem); letter-spacing:-.06em; line-height:.9; font-weight:500; margin:0; }
+.story-body { align-self:end; max-width:580px; font-size:clamp(1.25rem,2vw,2rem); line-height:1.25; letter-spacing:-.025em; }
+.story-body p { margin:0 0 1.4em; }
+.image-pair { background:#10100f; display:grid; grid-template-columns:1fr 1fr; gap:1.2vw; padding:1.2vw; }
+.image-pair img { width:100%; height:auto; object-fit:contain; align-self:start; }
+.location-block { display:grid; grid-template-columns:58% 42%; background:var(--blue); color:#f4efe4; }
+.location-block>img { width:100%; height:auto; object-fit:contain; align-self:center; }
+.location-block>div { padding:3vw; display:flex; flex-direction:column; justify-content:space-between; }
+.location-block>div>p:last-child { max-width:540px; font-size:18px; line-height:1.45; }
+.about { padding:8vw 2.25vw 12vw; }
+.about h2 { font-size:clamp(3rem,7.25vw,8rem); line-height:.92; letter-spacing:-.065em; font-weight:500; max-width:94vw; margin:7vw 0 10vw; }
+.about-grid { border-top:1px solid var(--line); display:grid; grid-template-columns:1fr 1fr; padding-top:14px; font-size:16px; }
+.about-grid p { margin:0; max-width:420px; }
+footer { display:grid; grid-template-columns:1fr 1fr auto; align-items:end; border-top:1px solid var(--line); padding:22px 2.25vw 28px; min-height:150px; }
+footer p { margin:0; }
+
+@media (max-width:1100px) {
+  .hero h1 { font-size:clamp(3.8rem,9.2vw,7rem); line-height:.88; }
+  .project-row { grid-template-columns:34% 66%; }
+  .project-copy { min-height:40vw; padding-right:2.5vw; }
+  .project-copy h2 { font-size:clamp(2.5rem,4.8vw,4.5rem); }
+  .location-block h2 { font-size:clamp(2.8rem,5vw,5rem); }
+}
+
+@media (max-width:760px) {
+  .site-header { min-height:62px; padding:0 18px; }
+  .brand span { display:none; }
+  .site-header nav { gap:14px; }
+  .hero { min-height:calc(100svh - 62px); padding:28px 18px 18px; }
+  .hero h1 { font-size:clamp(3.6rem,16.2vw,6rem); }
+  .hero h1 span { padding-left:0; }
+  .hero-meta { grid-template-columns:1fr; gap:22px; }
+  .hero-meta a { justify-self:start; }
+  .featured { padding:0 18px 90px; }
+  .featured>img { height:auto; aspect-ratio:auto; object-fit:contain; }
+  .featured-caption { grid-template-columns:1fr auto; gap:6px; }
+  .featured-caption span:nth-child(2) { grid-row:2; }
+  .section-heading { padding:20px 18px 80px; grid-template-columns:1fr 1fr; }
+  .project-row { min-height:auto; padding:18px; grid-template-columns:1fr; gap:46px; }
+  .project-copy { min-height:300px; padding:0; }
+  .project-copy h2 { font-size:clamp(2.8rem,13vw,5rem); }
+  .project-row figure { aspect-ratio:auto; }
+  .story { grid-template-columns:1fr; padding:100px 18px; }
+  .story-title>p { margin-bottom:56px; }
+  .story-body { margin-top:45px; }
+  .image-pair { grid-template-columns:1fr; padding:8px; gap:8px; }
+  .image-pair img { height:auto; }
+  .location-block { grid-template-columns:1fr; }
+  .location-block>img { width:100%; height:auto; object-fit:contain; }
+  .location-block>div { min-height:620px; padding:24px 18px; }
+  .about { padding:90px 18px 120px; }
+  .about h2 { margin:60px 0 90px; }
+  .about-grid { grid-template-columns:1fr; gap:28px; }
+  footer { padding:20px 18px 24px; grid-template-columns:1fr auto; }
+  footer p:last-child { display:none; }
+}
+@media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .project-row figure img { transition:none; } }
